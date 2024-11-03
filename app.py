@@ -1,4 +1,5 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from scrape import scrape_all_events
 from models import get_events, delete_all_events
 from selenium import webdriver
@@ -8,6 +9,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 chrome_options = Options()
