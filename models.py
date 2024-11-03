@@ -1,7 +1,8 @@
 import sqlite3
 
 class Evento:
-    def __init__(self, nome, data, localidade, cidade, preco_minimo, preco_maximo, descricao, link_compra, link_origem, imagem):
+    def __init__(self, nome, data, localidade, cidade, preco_minimo, preco_maximo, descricao, link_compra, link_origem, imagem, id=None):
+        self.id = id
         self.nome = nome
         self.data = data
         self.localidade = localidade
@@ -64,7 +65,7 @@ def get_events():
     cursor.execute('SELECT * FROM eventos')
     rows = cursor.fetchall()
 
-    eventos = [Evento(*row[1:]).to_dict() for row in rows]
+    eventos = [Evento(*row[1:], id=row[0]).to_dict() for row in rows]
 
     conn.close()
     return eventos
