@@ -1,0 +1,22 @@
+# Python Bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Docker
+*.dockerfile
+*.dockerignore
+
+# Selenium related
+*.log  # If you are logging errors, avoid pushing logs to Git
