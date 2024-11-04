@@ -107,6 +107,9 @@ def scrape_event_data(driver, url, link_origem):
 
 
 def scrape_all_events(driver):
+    global event_page_urls
+    event_page_urls = []
+
     initialize_database()
     delete_all_events()
 
@@ -121,5 +124,3 @@ def scrape_all_events(driver):
     for event_url, city_url in event_page_urls:
         driver.get(event_url)
         scrape_event_data(driver, event_url, city_url)
-
-    print('Raspagem dos eventos concluida com sucesso')
